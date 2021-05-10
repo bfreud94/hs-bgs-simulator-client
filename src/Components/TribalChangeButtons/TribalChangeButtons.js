@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
+import { Button } from '@material-ui/core';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { addTribe, removeTribe } from '../../actions/poolActions';
-import { Button } from '@material-ui/core';
 import store from '../../store';
 import './TribalChangeButtons.css';
 
@@ -18,12 +18,12 @@ const CustomButton = withStyles({
         position: 'absolute',
         right: '-50px',
         top: '150px',
-        "&:hover": {
-            backgroundColor: "black"
+        '&:hover': {
+            backgroundColor: 'black'
         }
     },
     label: {
-        textTransform: 'capitalize',
+        textTransform: 'capitalize'
     }
 })(Button);
 
@@ -31,7 +31,11 @@ class TribalChangeButtons extends Component {
 
     toggleTribe = (tribe) => {
         const { tribes } = store.getState().pool;
-        tribes.includes(tribe) ? this.props.removeTribe(tribe) : this.props.addTribe(tribe);
+        if (tribes.includes(tribe)) {
+            this.props.removeTribe(tribe);
+        } else {
+            this.props.addTribe(tribe);
+        }
     }
 
     isVisible = (tribe) => {
@@ -51,27 +55,29 @@ class TribalChangeButtons extends Component {
         const intersection = allTribes.filter(x => !tribes.includes(x));
         intersection.forEach((tribe) => this.props.addTribe(tribe));
         const set = new Set();
-        while(set.size < 2) {
+        while (set.size < 2) {
             set.add(Math.floor(Math.random() * 7));
         }
-        for(let i of Array.from(set)) {
+        Array.from(set).forEach((i) => {
             this.props.removeTribe(allTribes[i]);
-        }
+        });
     }
-    
+
     render() {
         const tribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Pirate', 'Quilboar'];
         const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : '';
         return (
             <div>
-                {tribes.map((tribe) =>
-                    tribe !== 'Neutral' ?
-                        <React.Fragment key={tribe}>
-                            <img className='redx' style={this.isVisible(tribe)} src={`${serverUri}/assets/img/redx.png`} onClick={() => this.toggleTribe(tribe)} alt='Red X' />
-                            <img className={`${this.formatTribe(tribe)}s`} src={`${serverUri}/assets/img/Tribes/${tribe}.png`} onClick={() => this.toggleTribe(tribe)} alt={tribe} />
-                        </React.Fragment>
-                    : <React.Fragment key={tribe} />
-                )}
+                {tribes.map(tribe => (
+                    tribe !== 'Neutral'
+                        ? (
+                            <React.Fragment key={tribe}>
+                                <img className='redx' style={this.isVisible(tribe)} src={`${serverUri}/assets/img/redx.png`} onClick={() => this.toggleTribe(tribe)} alt='Red X' />
+                                <img className={`${this.formatTribe(tribe)}s`} src={`${serverUri}/assets/img/Tribes/${tribe}.png`} onClick={() => this.toggleTribe(tribe)} alt={tribe} />
+                            </React.Fragment>
+                        )
+                        : <React.Fragment key={tribe} />
+                ))}
                 <CustomButton onClick={() => this.omitTwoRandomTribes()}>Exclude 2 Random Tribes</CustomButton>
             </div>
         );

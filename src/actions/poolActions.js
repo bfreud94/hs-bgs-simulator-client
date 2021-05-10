@@ -63,7 +63,7 @@ export const addMinion = (minionToAdd, tier) => async (dispatch) => {
 };
 
 export const addTribe = (tribe) => (dispatch) => {
-    const tier = store.getState().tier;
+    const { tier } = store.getState();
     dispatch({
         type: ADD_TRIBE,
         payload: {
@@ -75,7 +75,7 @@ export const addTribe = (tribe) => (dispatch) => {
 };
 
 export const removeTribe = (tribe) => (dispatch) => {
-    const tier = store.getState().tier;
+    const { tier } = store.getState();
     dispatch({
         type: REMOVE_TRIBE,
         payload: tribe

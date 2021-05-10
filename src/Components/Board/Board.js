@@ -86,7 +86,7 @@ class Board extends Component {
 
     render() {
         return (
-            <div className='board-wrapper' style={{backgroundImage: `url(${process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : ''}/assets/img/board.png)`}}>
+            <div className='board-wrapper' style={{ backgroundImage: `url(${process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : ''}/assets/img/board.png)` }}>
                 <TribalChangeButtons />
                 <React.Fragment>{this.tavernUpAndDownElements()}</React.Fragment>
                 <div className='card-display'>{this.displayCards()}</div>

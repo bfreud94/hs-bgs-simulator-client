@@ -13,13 +13,13 @@ export default function (state = initialState, action) {
                 ...state,
                 uniqueMinions: action.payload
             };
-        } case ADD_TAVERN_MINIONS_TO_POOL:
+        } case ADD_TAVERN_MINIONS_TO_POOL: {
             const minions = action.payload.filter((minion) => state.tribes.includes(minion.tribe));
             return {
                 ...state,
                 minionPool: [...state.minionPool, ...minions]
             };
-        case REMOVE_TAVERN_MINIONS_FROM_POOL: {
+        } case REMOVE_TAVERN_MINIONS_FROM_POOL: {
             return {
                 ...state,
                 minionPool: action.payload.minionPool.filter((minion) => minion.tier <= action.payload.tier)
@@ -55,13 +55,13 @@ export default function (state = initialState, action) {
         } case ADD_TRIBE: {
             const { tribe, tier } = action.payload;
             const minionsToAdd = [];
-            for(let i = 1; i <= tier; i++) {
+            for (let i = 1; i <= tier; i++) {
                 minionsToAdd.push(...state.uniqueMinions[i].filter((minion) => minion.tribe === tribe));
             }
             const minionsPerTier = { 1: 16, 2: 15, 3: 13, 4: 11, 5: 9, 6: 7 };
             const minionCopies = [];
             minionsToAdd.forEach((minion) => {
-                for(let i = 0; i < minionsPerTier[minion.tier]; i++) {
+                for (let i = 0; i < minionsPerTier[minion.tier]; i++) {
                     minionCopies.push(minion);
                 }
             });
@@ -78,7 +78,7 @@ export default function (state = initialState, action) {
                 ...state,
                 tribes: updatedTribes,
                 minionPool
-            }
+            };
         } default:
             return state;
     }

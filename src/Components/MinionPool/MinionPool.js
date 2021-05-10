@@ -135,7 +135,7 @@ class MinionPool extends Component {
         const { tier, currentRoll, pool } = store.getState();
         let minionPool = [...pool.minionPool, ...currentRoll.minions];
         let denominator = minionPool.length;
-        minionPool = minionPool.filter((minion) => parseInt(minion.tier) !== menuTier);
+        minionPool = minionPool.filter((minion) => parseInt(minion.tier, 10) !== menuTier);
         let odds = 1;
         let numerator = minionPool.length;
         const tierToMinionsMap = { 1: 3, 2: 4, 3: 4, 4: 5, 5: 5, 6: 6 };

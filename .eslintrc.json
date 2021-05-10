@@ -19,8 +19,10 @@
         "react"
     ],
     "rules": {
+        "arrow-parens": 0,
         "comma-dangle": ["error", "never"],
         "eol-last": 0,
+        "func-names": 0,
         "implicit-arrow-linebreak": 0,
         "import/no-cycle": 0,
         "import/no-named-as-default": 0,
@@ -52,6 +54,7 @@
         "react/jsx-indent": 0,
         "react/jsx-indent-props": 0,
         "react/no-did-update-set-state": 0,
+        "react/jsx-one-expression-per-line": 0,
         "react/prefer-stateless-function": 0,
         "padded-blocks": 0,
         "prefer-template": 0
