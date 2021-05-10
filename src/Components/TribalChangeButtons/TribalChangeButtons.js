@@ -65,7 +65,7 @@ class TribalChangeButtons extends Component {
 
     render() {
         const tribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Pirate', 'Quilboar'];
-        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : '';
+        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com';
         return (
             <div>
                 {tribes.map(tribe => (

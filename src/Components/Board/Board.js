@@ -41,7 +41,7 @@ class Board extends Component {
     }
 
     tavernUpAndDownElements = () => {
-        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : '';
+        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com';
         const { tier } = store.getState();
         const tavernUpURL = `${serverUri}/assets/img/tavernUp.png`;
         const tavernDownURL = `${serverUri}/assets/img/tavernDown.png`;
@@ -68,7 +68,7 @@ class Board extends Component {
     };
 
     displayCards = () => {
-        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : '';
+        const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com';
         const { currentRoll } = store.getState();
         const board = [];
         currentRoll.minions.forEach((minion, index) => {
@@ -86,7 +86,7 @@ class Board extends Component {
 
     render() {
         return (
-            <div className='board-wrapper' style={{ backgroundImage: `url(${process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : ''}/assets/img/board.png)` }}>
+            <div className='board-wrapper' style={{ backgroundImage: `url(${process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com'}/assets/img/board.png)` }}>
                 <TribalChangeButtons />
                 <React.Fragment>{this.tavernUpAndDownElements()}</React.Fragment>
                 <div className='card-display'>{this.displayCards()}</div>

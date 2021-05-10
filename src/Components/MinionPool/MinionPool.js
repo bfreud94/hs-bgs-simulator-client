@@ -271,7 +271,7 @@ class MinionPool extends Component {
 
     render() {
         const { imageLocation, minionSelected } = this.state;
-        const imageURL = process.env.NODE_ENV.trim() === 'development' ? `http://localhost:8000/assets${imageLocation}` : `/assets${imageLocation}`;
+        const imageURL = process.env.NODE_ENV.trim() === 'development' ? `http://localhost:8000/assets${imageLocation}` : `https://hs-bgs-simulator-server.herokuapp.com/assets${imageLocation}`;
         return (
             <div className='minion-pool-wrapper'>
                 <React.Fragment>
