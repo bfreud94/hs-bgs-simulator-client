@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser": true,
+        "es2020": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "comma-dangle": ["error", "never"],
+        "eol-last": 0,
+        "implicit-arrow-linebreak": 0,
+        "import/no-cycle": 0,
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "import/newline-after-import": "off",
+        "import/prefer-default-export": 0,
+        "indent": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-quotes": 0,
+        "linebreak-style": 0,
+        "max-len": ["error", 250],
+        "no-else-return": 0,
+        "no-nested-ternary": 0,
+        "no-return-await": 0,
+        "no-plusplus": 0,
+        "no-param-reassign": 0,
+        "no-shadow": 0,
+        "no-use-before-define": 0,
+        "no-underscore-dangle": 0,
+        "object-curly-newline": 0,
+        "react/destructuring-assignment": 0,
+        "react/forbid-prop-types": 0,
+        "react/no-array-index-key": 0,
+        "react/jsx-first-prop-new-line": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-max-props-per-line": 0,
+        "react/jsx-fragments": 0,
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": 0,
+        "react/no-did-update-set-state": 0,
+        "react/prefer-stateless-function": 0,
+        "padded-blocks": 0,
+        "prefer-template": 0
+    }
+}
