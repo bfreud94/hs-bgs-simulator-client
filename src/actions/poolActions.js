@@ -2,7 +2,7 @@ import { ADD_MINION, ADD_TAVERN_MINIONS_TO_POOL, ADD_TRIBE, REMOVE_TAVERN_MINION
 import { getCurrentRoll } from './reRollActions';
 import store from '../store';
 
-const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : '';
+const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com';
 
 export const uniqueMinions = () => async (dispatch) => {
     const uniqueMinions = await (await fetch(`${serverUri}/api/uniqueMinions`)).json();
