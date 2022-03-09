@@ -16,7 +16,7 @@ const CustomButton = withStyles({
         height: 48,
         padding: '0 20px',
         position: 'absolute',
-        right: '-50px',
+        right: '50px',
         top: '150px',
         '&:hover': {
             backgroundColor: 'black'
