@@ -51,7 +51,7 @@ class TribalChangeButtons extends Component {
 
     omitTwoRandomTribes = () => {
         const tribes = store.getState().pool.tribes.filter((tribe) => tribe !== 'Neutral');
-        const allTribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Pirate', 'Quilboar'];
+        const allTribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Naga', 'Pirate', 'Quilboar'];
         const intersection = allTribes.filter(x => !tribes.includes(x));
         intersection.forEach((tribe) => this.props.addTribe(tribe));
         const set = new Set();
@@ -64,7 +64,7 @@ class TribalChangeButtons extends Component {
     }
 
     render() {
-        const tribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Pirate', 'Quilboar'];
+        const tribes = ['Beast', 'Demon', 'Dragon', 'Elemental', 'Mech', 'Murloc', 'Naga', 'Pirate', 'Quilboar'];
         const serverUri = process.env.NODE_ENV.trim() === 'development' ? 'http://localhost:8000' : 'https://hs-bgs-simulator-server.herokuapp.com';
         return (
             <div>
